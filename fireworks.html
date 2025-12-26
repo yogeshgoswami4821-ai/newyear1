@@ -4,21 +4,20 @@ const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-let particles = [];
+let sparks = [];
 
-function createFirework() {
+function firecracker() {
   const x = Math.random() * canvas.width;
   const y = Math.random() * canvas.height / 2;
 
-  for (let i = 0; i < 80; i++) {
-    particles.push({
+  for (let i = 0; i < 60; i++) {
+    sparks.push({
       x,
       y,
-      radius: 2,
-      color: `hsl(${Math.random()*360},100%,60%)`,
       vx: Math.random()*6 - 3,
       vy: Math.random()*6 - 3,
-      life: 100
+      life: 80,
+      color: `hsl(${Math.random()*360},100%,60%)`
     });
   }
 }
@@ -26,21 +25,21 @@ function createFirework() {
 function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  particles.forEach((p, index) => {
-    p.x += p.vx;
-    p.y += p.vy;
-    p.life--;
+  sparks.forEach((s, i) => {
+    s.x += s.vx;
+    s.y += s.vy;
+    s.life--;
 
     ctx.beginPath();
-    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-    ctx.fillStyle = p.color;
+    ctx.arc(s.x, s.y, 2, 0, Math.PI*2);
+    ctx.fillStyle = s.color;
     ctx.fill();
 
-    if (p.life <= 0) particles.splice(index, 1);
+    if (s.life <= 0) sparks.splice(i, 1);
   });
 
   requestAnimationFrame(animate);
 }
 
-setInterval(createFirework, 1200);
+setInterval(firecracker, 1200);
 animate();
