@@ -1,32 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Christmas Home</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Christmas Home</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<canvas id="fireworks"></canvas>
 
 <header>🎄 Merry Christmas 🎄</header>
 
 <nav>
-  <a href="index.html">Home</a>
-  <a href="wishes.html">Wishes</a>
-  <a href="celebrate.html">Celebrate</a>
+  <button onclick="showSection('home')">Home</button>
+  <button onclick="showSection('wishes')">Wishes</button>
+  <button onclick="showSection('celebrate')">Celebrate</button>
 </nav>
 
-<div class="container">
+<!-- HOME SECTION -->
+<section id="home" class="section active">
   <div class="card">
-    <h2>Welcome to the Christmas Wonderland ✨</h2>
+    <h2>Welcome to Christmas Wonderland ✨</h2>
     <p>
-      Snowflakes in spirit, lights in heart,  
-      this website is built just to spread joy and warmth.
+      Lights sparkle, bells whisper joy,  
+      and this home page holds everything magical.
     </p>
-    <button onclick="location.href='wishes.html'">
-      Open Christmas Wishes 🎁
-    </button>
   </div>
-</div>
+</section>
+
+<!-- WISHES SECTION -->
+<section id="wishes" class="section">
+  <div class="card">
+    <h2>🎅 Christmas Wishes 🎅</h2>
+    <p>
+      🌟 May your days glow with happiness<br>
+      🌟 May peace sit softly in your heart<br>
+      🌟 May Christmas bring endless smiles
+    </p>
+  </div>
+</section>
+
+<!-- CELEBRATION SECTION -->
+<section id="celebrate" class="section">
+  <div class="card">
+    <h2>🎆 Let’s Celebrate 🎆</h2>
+    <p>
+      Firecrackers bloom like stars,  
+      joy dances freely in the winter sky.
+    </p>
+  </div>
+</section>
+
+<script src="fireworks.js"></script>
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(sec => {
+    sec.classList.remove('active');
+  });
+  document.getElementById(id).classList.add('active');
+}
+</script>
 
 </body>
 </html>
