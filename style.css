@@ -3,61 +3,57 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: radial-gradient(circle at top, #0b3d2e, #021b12);
-  color: #fff;
-  overflow-x: hidden;
+  background: radial-gradient(circle at top, #0a3d2e, #021a12);
+  color: white;
+  overflow: hidden;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
 header {
   text-align: center;
-  padding: 30px;
   font-family: 'Mountains of Christmas', cursive;
-  font-size: 2.8rem;
+  font-size: 3rem;
+  padding: 30px;
   color: #ffeb3b;
 }
 
 nav {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
-nav a {
-  margin: 0 15px;
-  text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 25px;
+nav button {
+  margin: 0 10px;
+  padding: 12px 24px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
   background: linear-gradient(45deg, #ff1744, #ff9100);
   color: white;
-  font-weight: bold;
-  transition: transform 0.3s;
 }
 
-nav a:hover {
-  transform: scale(1.1);
-}
-
-.container {
+.section {
+  display: none;
   text-align: center;
-  padding: 40px;
+  padding: 50px;
+}
+
+.section.active {
+  display: block;
 }
 
 .card {
-  background: rgba(255,255,255,0.12);
-  border-radius: 20px;
-  padding: 30px;
-  margin: auto;
   max-width: 700px;
-  box-shadow: 0 0 25px rgba(255,215,0,0.4);
-}
-
-button {
-  margin-top: 25px;
-  padding: 14px 28px;
-  border: none;
-  border-radius: 30px;
-  font-size: 1rem;
-  cursor: pointer;
-  background: linear-gradient(45deg, #00e676, #1de9b6);
-  color: #003300;
-  font-weight: bold;
+  margin: auto;
+  padding: 35px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.15);
+  box-shadow: 0 0 30px rgba(255,215,0,0.4);
 }
